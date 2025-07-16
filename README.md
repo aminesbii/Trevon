@@ -1,77 +1,52 @@
-📱 Expo Starter App
-Welcome to your Expo app! This project was bootstrapped using create-expo-app, providing a smooth starting point for building cross-platform React Native apps.
+# Welcome to your Expo app 👋
 
-🚀 Getting Started
-Follow these steps to get your development environment up and running:
+This is an [Expo](https://expo.dev) project created with [create-expo-app](https://www.npmjs.com/package/create-expo-app).
 
-1. Install Dependencies
+## Get started
+
+1. Install dependencies
+
+   
 bash
-Copy
-Edit
-npm install
-2. Launch the App
+   npm install
+
+
+2. Start the app
+
+   
 bash
-Copy
-Edit
-npx expo start
-You'll see options to open your app in:
+   npx expo start
 
-📱 Expo Go (recommended for quick testing)
 
-🧪 Development Build
+In the output, you'll find options to open the app in a
 
-🤖 Android Emulator
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-🍏 iOS Simulator
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-📂 Project Structure
-This project uses file-based routing via the app directory. You can begin development by editing or adding files inside the app folder.
+## Get a fresh project
 
-bash
-Copy
-Edit
-.
-├── app/              # Your screens and route files
-├── assets/           # Images, fonts, etc.
-├── package.json      # Project metadata and scripts
-└── ...
-♻️ Reset to Blank Project
-When you're ready to start fresh:
+When you're ready, run:
 
 bash
-Copy
-Edit
 npm run reset-project
-This will:
 
-Move the default starter code to /app-example
 
-Create a new blank /app folder for your own code
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-📚 Learn More
-Deepen your knowledge with these official resources:
+## Learn more
 
-📘 Expo Documentation
+To learn more about developing your project with Expo, look at the following resources:
 
-🎓 Step-by-step Expo Tutorial
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-🛠️ Guides & Advanced Topics
+## Join the community
 
-💬 Join the Community
-Connect with other developers and stay up-to-date with the latest from Expo:
+Join our community of developers creating universal apps.
 
-🌍 Expo GitHub
-
-💬 Expo Discord
-
-🛠️ Technologies Used
-Expo
-
-React Native
-
-JavaScript/TypeScript
-
-React Navigation (if installed)
-
-📄 License
-This project is open-source and available under the MIT License.
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
