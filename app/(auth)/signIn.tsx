@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { Alert, Button, Text, View } from 'react-native'
 import CustomInput from '@/components/CustomInput'
 import CustomButton from '@/components/CustomButton'
+import { SignIn } from '@/lib/appwrite'
+import * as Sentry from '@sentry/react-native';
+
 
 const signIn = () => {
 
@@ -10,15 +13,20 @@ const signIn = () => {
   const [form, setForm] = useState( {email: '' , password: ''});
 
   const submit = async ()=> {
-    if(!form.email || !form.password ) return Alert.alert('Error' , 'Please enter valid email adress and password.')
+
+    const { email , password } = form;
+
+    if(!email || !password ) return Alert.alert('Error' , 'Please enter valid email adress and password.')
       setIsSubmiting(true)
 
     try{
+     await  SignIn({email , password})
 
       Alert.alert('Success' , 'user signed in successfuly.')
       router.replace('/');
     } catch (error:any){
       Alert.alert('Error', error.message )
+      Sentry.captureEvent(error);
     } finally{
       setIsSubmiting(false);
     }
