@@ -1,8 +1,7 @@
-import { Category } from './../type.d';
 import { CreateUserParams, SignInParams } from '@/type';
 import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite";
 
-export const appwritecConfig = {
+export const appwriteConfig = {
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID! ,
     platform: "com.amine.trevon",
@@ -11,16 +10,16 @@ export const appwritecConfig = {
     userCollectioId: '68745586001a62b3c856',
     categoriesCollectionId: '6877e87a0007df219ad3',
     menuCollectionId: '6877e9690038a8e4a374',
-    customizationCollectionId:'6877eea1003d9cfe145f',
-    menuCustomizationCollectionId: '6877f0e700059b14b7e9',
+    customizationsCollectionId:'6877eea1003d9cfe145f',
+    menuCustomizationsCollectionId: '6877f0e700059b14b7e9',
 }
 
 export const client = new Client();
 
 client 
-    .setEndpoint(appwritecConfig.endpoint) 
-    .setProject(appwritecConfig.projectId) 
-    .setPlatform(appwritecConfig.platform)
+    .setEndpoint(appwriteConfig.endpoint) 
+    .setProject(appwriteConfig.projectId) 
+    .setPlatform(appwriteConfig.platform)
 
 export const account = new Account(client);
 export const databases = new Databases(client);
@@ -32,13 +31,13 @@ export const createUser = async ({ email , password , name } : CreateUserParams 
         const newAccount = await account.create( ID.unique() , email , password , name)
         if(!newAccount) throw Error;
 
-        await SignIn({email ,password});
+        await signIn({email ,password});
 
         const avatarUrl = avatars.getInitialsURL(name);
 
         const newUser =  await databases.createDocument(
-            appwritecConfig.databaseId,
-            appwritecConfig.userCollectioId,
+            appwriteConfig.databaseId,
+            appwriteConfig.userCollectioId,
             ID.unique(),
             { accountId : newAccount.$id , email , name , avatar: avatarUrl }
         );  
@@ -51,7 +50,7 @@ export const createUser = async ({ email , password , name } : CreateUserParams 
 
 }
 
-export const SignIn = async ({email , password }: SignInParams ) => {
+export const signIn = async ({email , password }: SignInParams ) => {
     try{
       const session = await account.createEmailPasswordSession(email , password);
       
@@ -66,8 +65,8 @@ export const getCurrentUser = async () => {
     if(!currentAccount) throw Error;
 
     const currentUser = await databases.listDocuments(
-        appwritecConfig.databaseId,
-        appwritecConfig.userCollectioId,
+        appwriteConfig.databaseId,
+        appwriteConfig.userCollectioId,
         [Query.equal('accountId' , currentAccount.$id)]
     )
     if(! currentUser) throw Error;

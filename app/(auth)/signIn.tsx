@@ -1,13 +1,13 @@
-import { Link, router } from 'expo-router'
-import React, { useState } from 'react'
-import { Alert, Button, Text, View } from 'react-native'
-import CustomInput from '@/components/CustomInput'
-import CustomButton from '@/components/CustomButton'
-import { SignIn } from '@/lib/appwrite'
+import { Link, router } from 'expo-router';
+import React, { useState } from 'react';
+import { Alert, Button, Text, View } from 'react-native';
+import CustomInput from '@/components/CustomInput';
+import CustomButton from '@/components/CustomButton';
+import { signIn } from '@/lib/appwrite';
 import * as Sentry from '@sentry/react-native';
 
 
-const signIn = () => {
+const SignIn = () => {
 
   const [isSubmitting , setIsSubmiting] = useState(false);
   const [form, setForm] = useState( {email: '' , password: ''});
@@ -20,7 +20,7 @@ const signIn = () => {
       setIsSubmiting(true)
 
     try{
-     await  SignIn({email , password})
+       await signIn({ email, password });
 
       Alert.alert('Success' , 'user signed in successfuly.')
       router.replace('/');
@@ -62,4 +62,4 @@ const signIn = () => {
   )
 }
 
-export default signIn
+export default SignIn
