@@ -23,15 +23,15 @@ Sentry.init({
 });
 
 export default Sentry.wrap(function RootLayout() {
-  const {isLoading , fetchAuthenticatedUser } = useAuthStore();
+   const { isLoading, fetchAuthenticatedUser } = useAuthStore();
 
-  const [fontsLoaded, error] = useFonts({  
-    "Quicksand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
-    "Quicksand-Medium": require("../assets/fonts/Quicksand-Medium.ttf"),
-    "Quicksand-Regular": require("../assets/fonts/Quicksand-Regular.ttf"),
-    "Quicksand-SemiBold": require("../assets/fonts/Quicksand-SemiBold.ttf"),
-    "Quicksand-Light": require("../assets/fonts/Quicksand-Light.ttf"),
-  })
+  const [fontsLoaded, error] = useFonts({
+    "QuickSand-Bold": require('../assets/fonts/Quicksand-Bold.ttf'),
+    "QuickSand-Medium": require('../assets/fonts/Quicksand-Medium.ttf'),
+    "QuickSand-Regular": require('../assets/fonts/Quicksand-Regular.ttf'),
+    "QuickSand-SemiBold": require('../assets/fonts/Quicksand-SemiBold.ttf'),
+    "QuickSand-Light": require('../assets/fonts/Quicksand-Light.ttf'),
+  });
 
   useEffect(() => {
     if(error) throw error;

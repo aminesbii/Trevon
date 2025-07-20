@@ -1,6 +1,6 @@
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
-//import useAuthStore from "@/store/auth.store";
+import useAuthStore from "@/store/auth.store";
 import * as Sentry from '@sentry/react-native';
 import cn from 'clsx';
 import React, { Fragment } from "react";
@@ -8,7 +8,7 @@ import { Button, FlatList, Image, Pressable, Text, TouchableOpacity, View } from
 import { SafeAreaView } from "react-native-safe-area-context";
  
 export default function Index() {
-  //const { user} = useAuthStore();
+  const { user} = useAuthStore();
   //console. log("USER: ", JSON. stringify( user, null,  2));
 
   return (
